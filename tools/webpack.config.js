@@ -233,7 +233,7 @@ const clientConfig = extend(true, {}, config, {
 
       // Search for equal or similar files and deduplicate them in the output
       // https://webpack.github.io/docs/list-of-plugins.html#dedupeplugin
-      new webpack.optimize.DedupePlugin(),
+      //new webpack.optimize.DedupePlugin(),
 
       // Minimize all JavaScript output of chunks
       // https://github.com/mishoo/UglifyJS2#compressor-options

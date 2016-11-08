@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Panel } from 'react-bootstrap';
+import { Panel, Button} from 'react-bootstrap';
 import Link from '../Link';
+import 'whatwg-fetch';
 
 class StatWidget extends Component{ // eslint-disable-line
   static propTypes = {
@@ -10,6 +11,39 @@ class StatWidget extends Component{ // eslint-disable-line
     icon: React.PropTypes.string,
     footerText: React.PropTypes.string,
   }
+
+  constructor() {
+    super();
+    this.state = {
+      text: "Get cat name!"
+    }
+  }
+
+  getNumber(json) {
+    let number = Math.floor(Math.random()*( Object.keys(json).length));
+    console.log(number);
+
+    return number; 
+  }
+
+  buttonClicked() {
+    console.log('the button was clicked!');
+    fetch('https://raw.githubusercontent.com/sindresorhus/superb/master/words.json')
+      .then(response => response.json())
+      .then(json => {
+        console.log(json);
+        this.setState({
+          text: json[this.getNumber(json)],
+        });
+      });
+  }
+
+  // componentWillMount() {
+  //   Api.get('https://raw.githubusercontent.com/sindresorhus/superb/master/words.json').then((data) => {
+
+  //   })
+  // }
+
   render() {
     return (
       <Panel
@@ -42,6 +76,7 @@ class StatWidget extends Component{ // eslint-disable-line
               this.props.linkTo // eslint-disable-line
             }
           >
+          <Button block onClick={ (e) => { this.buttonClicked(); } }>{this.state.text}</Button>
             <span className="pull-left">
               {
                 this.props.footerText

@@ -68,7 +68,7 @@ function Home(props, context) {
             style="panel-yellow"
             icon="fa fa-shopping-cart fa-5x"
             count="124"
-            headerText="New Orders!"
+            headerText="New Orders!!!"
             footerText="View Details"
             linkTo="/"
           />
@@ -123,7 +123,7 @@ function Home(props, context) {
               <i className="fa fa-bar-chart-o fa-fw" /> Bar Chart Example
               <div className="pull-right">
                 <DropdownButton title="Dropdown" bsSize="xs" pullRight id="dropdownButton2">
-                  <MenuItem eventKey="1">Action</MenuItem>
+                  <MenuItem eventKey="1">Mattis action</MenuItem>
                   <MenuItem eventKey="2">Another action</MenuItem>
                   <MenuItem eventKey="3">Something else here</MenuItem>
                   <MenuItem divider />

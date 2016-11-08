@@ -94,6 +94,7 @@ async function start() {
               target: host,
               middleware: [wpMiddleware, ...hotMiddlewares],
             },
+            online: true,
 
             // no need to watch '*.js' here, webpack will take care of it for us,
             // including full page reloads if HMR won't work
